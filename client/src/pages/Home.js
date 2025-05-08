@@ -93,7 +93,7 @@ function Home() {
                     sx={{ mt: 2 }}
                     onClick={() => navigate('/machine-info')}
                   >
-                    Voir toutes les machines
+                    Voir la machine
                   </Button>
                 </Box>
               )}

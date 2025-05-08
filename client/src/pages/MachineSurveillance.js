@@ -304,10 +304,10 @@ function MachineSurveillance() {
             </Stack>
             <Grid container spacing={2}>
               {[
-                { title: 'Zone principale', value: sensorData.temperature1, thresholds: { warning: 70, critical: 85 } },
-                { title: 'Moteur', value: sensorData.temperature2, thresholds: { warning: 70, critical: 85 } },
-                { title: 'Composants', value: sensorData.temperature3, thresholds: { warning: 70, critical: 85 } },
-                { title: 'Environnement', value: sensorData.temperature4, thresholds: { warning: 70, critical: 85 } }
+                { title: 'Temperature 1', value: sensorData.temperature1, thresholds: { warning: 70, critical: 85 } },
+                { title: 'Temperature 2', value: sensorData.temperature2, thresholds: { warning: 70, critical: 85 } },
+                { title: 'Temperature 3', value: sensorData.temperature3, thresholds: { warning: 70, critical: 85 } },
+                { title: 'Temperature 4', value: sensorData.temperature4, thresholds: { warning: 70, critical: 85 } }
               ].map((temp, index) => (
                 <Grid item xs={12} sm={6} lg={3} key={`temp-${index}`}>
                   {renderMonitoringCard(
@@ -343,10 +343,10 @@ function MachineSurveillance() {
             </Stack>
             <Grid container spacing={2}>
               {[
-                { title: 'Moteur principal', value: sensorData.speed1, thresholds: { warning: 800, critical: 1200 } },
-                { title: 'Ventilateur', value: sensorData.speed2, thresholds: { warning: 800, critical: 1200 } },
-                { title: 'Convoyeur', value: sensorData.speed3, thresholds: { warning: 800, critical: 1200 } },
-                { title: 'Pompe auxiliaire', value: sensorData.speed4, thresholds: { warning: 800, critical: 1200 } }
+                { title: 'vitesse 1', value: sensorData.speed1, thresholds: { warning: 800, critical: 1200 } },
+                { title: 'Vitesse 2', value: sensorData.speed2, thresholds: { warning: 800, critical: 1200 } },
+                { title: 'Vitesse 3', value: sensorData.speed3, thresholds: { warning: 800, critical: 1200 } },
+                { title: 'Vitesse 4', value: sensorData.speed4, thresholds: { warning: 800, critical: 1200 } }
               ].map((speed, index) => (
                 <Grid item xs={12} sm={6} lg={3} key={`speed-${index}`}>
                   {renderMonitoringCard(
@@ -382,8 +382,8 @@ function MachineSurveillance() {
             </Stack>
             <Grid container spacing={2}>
               {[
-                { title: 'Porte principale', state: sensorData.door1_state },
-                { title: 'Porte de maintenance', state: sensorData.door2_state }
+                { title: 'Porte droite', state: sensorData.door1_state },
+                { title: 'Porte gauche', state: sensorData.door2_state }
               ].map((door, index) => (
                 <Grid item xs={12} sm={6} key={`door-${index}`}>
                   {renderMonitoringCard(
