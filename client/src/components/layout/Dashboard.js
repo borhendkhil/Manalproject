@@ -69,7 +69,12 @@ function Dashboard({ setIsAuthenticated }) {
   const [open, setOpen] = useState(true);
   const [anchorEl, setAnchorEl] = useState(null);
   
-  const user = JSON.parse(localStorage.getItem('user')) || { username: 'Utilisateur' };
+  // Fix: Add default value and safety checks for user
+  const userFromStorage = localStorage.getItem('user');
+  const user = userFromStorage ? JSON.parse(userFromStorage) : { username: 'Utilisateur' };
+  
+  // Ensure username exists and is a string
+  const username = user && typeof user.username === 'string' ? user.username : 'Utilisateur';
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -103,7 +108,7 @@ function Dashboard({ setIsAuthenticated }) {
     { text: 'Machine Nettoyeuse', icon: <CleaningServicesIcon />, path: '/machine-info' },
     { text: 'Contrôle de Machine', icon: <DevicesIcon />, path: '/machine-control' },
     { text: 'Surveillance', icon: <MonitorHeartIcon />, path: '/machine-surveillance' },
-    { text: 'Alertes', icon: <NotificationsIcon />, path: '/alerts' },
+    { text: 'Gestion des alertes', icon: <NotificationsIcon />, path: '/alerts' },
     { text: 'Historique', icon: <HistoryIcon />, path: '/history' },
     { text: 'Paramètres', icon: <SettingsIcon />, path: '/settings' },
   ];
@@ -139,7 +144,8 @@ function Dashboard({ setIsAuthenticated }) {
           </Typography>
           <IconButton color="inherit" onClick={handleMenuOpen}>
             <Avatar sx={{ bgcolor: 'secondary.main', width: 32, height: 32 }}>
-              {user.username.charAt(0).toUpperCase()}
+              {/* Fix: Add safety checks for username */}
+              {username && username.length > 0 ? username.charAt(0).toUpperCase() : 'U'}
             </Avatar>
           </IconButton>
           <Menu
